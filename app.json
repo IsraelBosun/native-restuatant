@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "native-restaurant",
-    "slug": "native-restaurant",
+    "name": "restaurant",
+    "slug": "restaurant",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#32B768"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.israelbosun.restaurant"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f41f2115-15af-4f13-89bf-f46e26c91bde"
+      }
     }
   }
 }
