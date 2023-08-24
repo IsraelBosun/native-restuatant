@@ -8,6 +8,8 @@ import { useNavigation } from '@react-navigation/native';
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/Firebase';
 import { setItem } from '../utils/AsyncStorage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 
@@ -28,11 +30,13 @@ export default function Login() {
             await signInWithEmailAndPassword(auth, email, password);
             const jsonValue = JSON.stringify(auth);
             setItem("login", "2")
-            // await AsyncStorage.setItem('my-key', jsonValue);
+            await AsyncStorage.setItem('my-key', jsonValue);
             alert(`${email} is signed in`)
+            navigation.navigate("Tab")
             // console.log(auth)
           } catch (err) {
             console.log("got error", err.message)
+            alert(err.message)
           }
         }
       }
@@ -40,9 +44,11 @@ export default function Login() {
 
 
   return (
-    <View style={tw`flex-1 bg-gray-300 items-center justify-center mb-[250px] `}>
-      <Image source={require('../assets/imagess/orderdone.png')} style={tw`absolute `}/>
-      <View style={tw`bg-white h-full top-[250px] rounded-tl-[50px] rounded-tr-[50px]  w-full relative `}>
+    <View style={tw`flex-1 bg-gray-300 items-center justify-center  `}>
+        <View style={tw`flex-1  mt-15`}>
+      <Image source={require('../assets/imagess/orderdone.png')} style={tw` `}/>
+        </View>
+      <View style={tw`bg-white z-10 h-full top-[100px] rounded-t-[50px]  w-full  `}>
         <View style={tw`flex-1`}>
             <View style={tw` items-center`}>
             <Bars2Icon size="24" color="gray" style={tw`items-center text-center`} />
@@ -71,11 +77,11 @@ export default function Login() {
             <Text style={tw`text-[#32B768]`}>Forgot Password?</Text>
             </TouchableOpacity>
         </View>
-        <View style={tw`flex-1 flex gap-4 px-4 items-center justify-center`}>
+        <View style={tw` flex gap-4 px-4 mt-15 items-center justify-center`}>
             <TouchableOpacity onPress={handleSubmit} style={tw`bg-[#32B768] w-2/3 flex items-center  py-4 rounded-xl text-xl`}>
                 <Text style={tw`text-white`}>Login</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=> navigation.navigate("Home")} style={tw`bg-gray-100 w-2/3 flex-row justify-center items-center gap-4 py-4 rounded-xl text-xl`}>
+            <TouchableOpacity  onPress={()=> navigation.navigate("Tab")} style={tw`bg-gray-100 w-2/3 flex-row justify-center items-center gap-4 py-4 rounded-xl text-xl`}>
             <Image source={require('../assets/imagess/google.png')} />
                 <Text style={tw`text-[#374151] font-semibold`}>Login with Google</Text>
             </TouchableOpacity>

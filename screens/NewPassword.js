@@ -2,17 +2,22 @@ import { View, Text, TextInput, TouchableOpacity, Touchable } from 'react-native
 import React, { useState } from 'react'
 import tw from "twrnc"
 import { useNavigation } from '@react-navigation/native'
+import { ArrowLeftCircleIcon } from "react-native-heroicons/solid";
+
 
 export default function NewPassword() {
 
-  const navigaiton = useNavigation()
+
+  const navigation = useNavigation()
 
   const [email, setEmail] = useState("")
 
   return (
-    <View style={tw`flex-1  px-4 justify-center`}>
-
-      <View style={tw`flex mb-[200px] gap-[80px]`}>
+    <View style={tw`  px-4 justify-center`}>
+      <TouchableOpacity onPress={()=> navigation.goBack()} style={tw`mt-4`}>
+      <ArrowLeftCircleIcon  size="40" color="green" />
+      </TouchableOpacity>
+      <View style={tw`flex mt-[90px] gap-[150px]`}>
         <View>
         <Text style={tw`font-bold text-lg`}>Forgot Password?</Text>
         <Text style={tw`text-[#BEC5D1]`}>Enter your registered email below</Text>
@@ -28,7 +33,7 @@ export default function NewPassword() {
           </View>
         </View>
       </View>
-      <TouchableOpacity  style={tw`bg-[#32B768]  flex-row items-center justify-center  py-4 rounded-xl text-xl`}>
+      <TouchableOpacity  style={tw`bg-[#32B768]  flex-row mt-20 items-center justify-center  py-4 rounded-xl text-xl`}>
                 <Text style={tw`text-white`}>Submit</Text>
         </TouchableOpacity>
    </View>

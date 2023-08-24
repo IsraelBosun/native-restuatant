@@ -27,8 +27,10 @@ export default function Create() {
                 await createUserWithEmailAndPassword( auth, email, password);
                 const jsonValue = JSON.stringify(auth);
                 alert(`${name} is signed up`)
+                navigation.navigate("Tab")
             } catch (err) {
                 console.log("got error", err.message)
+                alert(err.message)
             }
         }
     }
@@ -36,9 +38,11 @@ export default function Create() {
 
 
   return (
-    <View style={tw`flex-1 bg-gray-300 items-center justify-center mb-[250px] `}>
-      <Image source={require('../assets/imagess/orderdone.png')} style={tw`absolute `}/>
-      <View style={tw`bg-white z-10 h-full top-[250px] rounded-tl-[50px] rounded-tr-[50px]  w-full relative `}>
+    <View style={tw`flex-1 bg-gray-300 items-center justify-center  `}>
+        <View style={tw`flex-1  mt-15`}>
+      <Image source={require('../assets/imagess/orderdone.png')} style={tw` `}/>
+        </View>
+      <View style={tw`bg-white z-10 h-full top-[100px] rounded-t-[50px]  w-full  `}>
         <View style={tw`flex-1`}>
             <View style={tw` items-center`}>
             <Bars2Icon size="24" color="gray" style={tw`items-center text-center`} />
@@ -67,7 +71,7 @@ export default function Create() {
             <TextInput style={tw`border-[#BEC5D1] border py-2 px-3 rounded-xl mt-1`} secureTextEntry value={password} onChangeText={value=> setPassword(value)} placeholder='1234455'/>
        
         </View>
-        <View style={tw`flex-1 flex gap-4 px-4 items-center justify-center`}>
+        <View style={tw` flex gap-4 px-4 items-center mt-12 justify-center`}>
             <TouchableOpacity onPress={handleSubmit} style={tw`bg-[#32B768] w-2/3 flex items-center  py-4 rounded-xl text-xl`}>
                 <Text style={tw`text-white`}>Register</Text>
             </TouchableOpacity>

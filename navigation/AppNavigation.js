@@ -11,6 +11,8 @@ import { getItem } from '../utils/AsyncStorage'
 import UseAuth from '../hooks/UseAuth'
 import NewPassword from '../screens/NewPassword'
 import Home from '../screens/Home'
+import TabNavigation from './TabNavigation'
+import Details from '../components/Details'
 
 
 
@@ -24,26 +26,44 @@ export default function AppNavigation() {
 
 
 
-  const [showOnboard, setShowOnboard] = useState(null);
+  // const [showOnboard, setShowOnboard] = useState(null);
 
-  useEffect(()=> {
-    checkIfAlreadyOnboarded()
-  },[])
+  // useEffect(()=> {
+  //   checkIfAlreadyOnboarded()
+  // },[])
 
-  const checkIfAlreadyOnboarded = async () => {
-    let onboarded = await getItem("onboarded" && "login");
-    if(onboarded == "1" && onboarded== "2") {
-      setShowOnboard(false);
-    } else {
-      setShowOnboard(true)
-    }
-  }
+  // const checkIfAlreadyOnboarded = async () => {
+  //   let onboarded = await getItem("onboarded" && "login");
+  //   if(onboarded == "1" && onboarded== "2") {
+  //     setShowOnboard(false);
+  //   } else {
+  //     setShowOnboard(true)
+  //   }
+  // }
 
-  if(showOnboard==null) {
-    return null
-  }
+  // if(showOnboard==null) {
+  //   return null
+  // }
 
-  if (showOnboard && user) {
+  if ( user) {
+    return (
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName='Tab'>
+          <Stack.Screen name="Onboarding" options={{headerShown: false}} component={Onboardingg} />
+          <Stack.Screen name="Welcome" options={{headerShown: false}} component={Welcome} />
+          <Stack.Screen name="Creation" options={{headerShown: false}} component={Creation} />
+
+
+          <Stack.Screen name="Create" options={{headerShown: false}} component={Create} />
+          <Stack.Screen name="Login" options={{headerShown: false}} component={Login} />
+          <Stack.Screen name="New" options={{headerShown: false}} component={NewPassword} />
+          <Stack.Screen name="Home" options={{headerShown: false}} component={Home} />
+          <Stack.Screen name="Tab" options={{headerShown: false}} component={TabNavigation} />
+          <Stack.Screen name="Details" options={{headerShown: false}} component={Details} />
+      </Stack.Navigator>
+  </NavigationContainer>
+    )
+  } else {
     return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName='Onboarding'>
@@ -52,26 +72,13 @@ export default function AppNavigation() {
           <Stack.Screen name="Creation" options={{headerShown: false}} component={Creation} />
 
 
-          <Stack.Screen name="Create" options={{headerShown: false}} component={Create} />
-          <Stack.Screen name="Login" options={{headerShown: false}} component={Login} />
-          <Stack.Screen name="New" options={{headerShown: false}} component={NewPassword} />
-          <Stack.Screen name="Home" options={{headerShown: false}} component={Home} />
-      </Stack.Navigator>
-  </NavigationContainer>
-    )
-  } else {
-    return (
-      <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Onboarding" options={{headerShown: false}} component={Onboardingg} />
-          <Stack.Screen name="Welcome" options={{headerShown: false}} component={Welcome} />
-          <Stack.Screen name="Creation" options={{headerShown: false}} component={Creation} />
-
 
           <Stack.Screen name="Create" options={{headerShown: false}} component={Create} />
           <Stack.Screen name="Login" options={{headerShown: false}} component={Login} />
           <Stack.Screen name="New" options={{headerShown: false}} component={NewPassword} />
           <Stack.Screen name="Home" options={{headerShown: false}} component={Home} />
+          <Stack.Screen name="Tab" options={{headerShown: false}} component={TabNavigation} />
+          <Stack.Screen name="Details" options={{headerShown: false}} component={Details} />
       </Stack.Navigator>
   </NavigationContainer>
     )

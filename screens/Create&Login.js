@@ -16,7 +16,7 @@ export default function Creation() {
 
   return (
     <View style={tw`flex-1 bg-gray-300 items-center justify-center mb-[250px] `}>
-      <Image source={require('../assets/imagess/orderdone.png')} style={tw`absolute `}/>
+      <Image source={require('../assets/imagess/orderdone.png')} style={tw`absolute  `}/>
       <View style={tw`bg-white h-full top-[250px] rounded-tl-[50px] rounded-tr-[50px]  w-full relative `}>
         <View style={tw`flex-1`}>
             <View style={tw` items-center`}>

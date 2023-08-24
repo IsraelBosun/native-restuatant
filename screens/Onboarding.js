@@ -38,18 +38,18 @@ export default function Onboardingg() {
             onSkip={handleDone}
             bottomBarHighlight={false}
             DoneButtonComponent={doneButton}
-            nextLabel= {<ArrowRightCircleIcon size="45" color={theme.main} />}
+            nextLabel= {<ArrowRightCircleIcon size="45" color="white" style={tw``} />}
             containerStyles={{paddingHorizontal: 15}}
         pages={[
             {
-            backgroundColor: '#a7f3d0',
+            backgroundColor: theme.main,
             image: (
                 <View style={styles.lottie}>
                     <Lottie source={require('../assets/animations/location.json')} autoPlay loop />
                 </View>
             ),
-            title: 'Welcome to the resurauant',
-            subtitle: "Your don't have to go far to find a good restaurant we have provided all the resturant that is near you"
+            title: <Text style={tw`text-white text-3xl text-center font-bold`}>Welcome to the resurauant</Text>,
+            subtitle: <Text style={tw`text-white text-center mt-3 text-lg`}>You don't have to go far to find a good restaurant we have provided all the resturant that is near you</Text> 
             },
 
             {
@@ -64,14 +64,14 @@ export default function Onboardingg() {
             },
 
             {
-                backgroundColor: theme.main,
+                backgroundColor: "white",
                 image: (
                     <View style={styles.lottie}>
                         <Lottie source={require('../assets/animations/food-delivery.json')} autoPlay loop />
                     </View>
                 ),
-                title: 'Your meal will be delivered at your doorstep',
-                subtitle: "You can order at any time of the day we are always available"
+                title: <Text style={tw`text-[#32B768] text-2xl text-center font-bold`}>Your meal will be delivered at your doorstep</Text> ,
+                subtitle: <Text style={tw`text-[#32B768] text-center mt-3 text-lg`}>You can order at any time of the day we are always available</Text> 
                 },
         ]}
         />

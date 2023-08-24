@@ -1,15 +1,18 @@
-import burgerLogo from "../../assets/imagess/burgerLogo"
-import burger from "../../assets/imagess/burger"
-import domino from "../../assets/imagess/domino"
-import pizza from "../../assets/imagess/pizza"
+import burgerLogo from "../assets/imagess/burger-logo.png"
+import burger from "../assets/imagess/burger.png"
+import domino from "../assets/imagess/domino.png"
+import pizza from "../assets/imagess/pizza.png"
 
-import chickenRice from "../../assets/imagess/chicken&rice"
-import chickenSauce from "../../assets/imagess/chicken&sauce"
-import chickenKatsu from "../../assets/imagess/chicken&katsu"
+import chickenRice from "../assets/imagess/chicken-rice.png"
+import chickenSauce from "../assets/imagess/chicken-sauce.png"
+import chickenKatsu from "../assets/imagess/chicken-katsu.png"
 
 
-import zaman from "../../assets/imagess/zaman"
-import tava from "../../assets/imagess/tava"
+import zaman from "../assets/imagess/zaman.png"
+import tava from "../assets/imagess/tava.png"
+import tavaL from "../assets/imagess/tava-large.png"
+
+// import tava from "../assets/imagess/"
 
 
 
@@ -33,45 +36,48 @@ const data = [
     }
 ]
 
-const arrivable = [
+export const arrivable = [
     {
         id: 1,
         image: chickenRice,
         food: "Chicken Biryani",
-        location: "Ambrosia Hotel & Restaurant"
+        location: "Ambrosia Hotel & \n Restaurant"
     },
     {
         id: 2,
         image: chickenSauce,
         food: "Sauce Tonkatsu",
-        location: "Handi Restuatant Chittagong"
+        location: "Handi Restuatant, \n Chittagong"
     },
     {
         id: 3,
         image: chickenKatsu,
         food: "Chicken Katsu",
-        location: "Ambrosia Hotel & Restaurant"
+        location: "Ambrosia Hotel & \n Restaurant"
     }
 ]
 
-const explore = [
+export const explore = [
     {
         id: 1,
         image: zaman,
         name: "Ambosia Hotel & Restaurant",
-        address: "Kazi Dery, Taiger Pass Chittagong"
+        address: "Kazi Dery, Taiger        \nPass Chittagong",
+        large: tavaL
     },
     {
         id: 2,
         image: tava,
-        name: "Tava Restuarantt",
-        address: "Zair Hassan Rd, Chittagong"
+        name: "Tava Restuarant",
+        address: "Zair Hassan Rd,         \nChittagong",
+        large: tavaL
     },
     {
-        id: 1,
+        id: 3,
         image: zaman,
         name: "Haatkhola",
-        address: "6 Sursoon Road Chittagong"
+        address: "6 Sursoon Road,        \nChittagong",
+        large: tavaL
     }
 ]
 
