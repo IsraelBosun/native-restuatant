@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import tw from "twrnc"
@@ -23,6 +23,11 @@ export default function Details() {
         </TouchableOpacity>
         <Text style={tw`text-white font-semibold text-lg`}>Details Restaurant</Text>
       </View>
+
+      <ScrollView
+      showsVerticalScrollIndicator={false}
+       style={[tw` pt-[10px] pb-[400px] px-2`, { flex: 1, }]}
+      >
       <View style={tw`bg-white py-5 mt-3 rounded-2xl`}>
         <View style={tw`flex my-3 px-5`} >
             <Text style={tw`font-semibold text-xl`}>{route.name}</Text>
@@ -56,7 +61,7 @@ export default function Details() {
     <View style={tw`flex-1 bg-white mt-4 rounded-2xl`}>
         <Explore />
     </View>
-
+    </ScrollView>
     </View>
   )
 }

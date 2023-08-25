@@ -59,8 +59,8 @@ export default function Onboardingg() {
                     <Lottie source={require('../assets/animations/scan-food.json')} autoPlay loop />
                 </View>
             ),
-            title: 'Select Your Favorite Menu',
-            subtitle: "Now eat well, you don't need to leave your house you can choose your favourite food with only one click"
+            title: <Text style={tw` text-3xl text-center font-bold`}>Select Your Favorite Menu</Text> ,
+            subtitle: <Text style={tw` text-center mt-3 text-lg`}>Now eat well, order your food with just one click</Text> 
             },
 
             {

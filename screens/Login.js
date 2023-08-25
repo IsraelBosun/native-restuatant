@@ -86,6 +86,7 @@ export default function Login() {
                 <Text style={tw`text-[#374151] font-semibold`}>Login with Google</Text>
             </TouchableOpacity>
         </View>
+        <Text style={tw`text-[#32B768] flex items-center justify-center text-center mt-3 font-semibold text-xs px-19 `}>Click the second button to bypass normal Login-in process</Text>
         </View>
         </View>
       </View>

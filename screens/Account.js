@@ -1,11 +1,15 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import tw from "twrnc"
 import { MapPinIcon, UserCircleIcon, PencilSquareIcon, LanguageIcon, ChevronLeftIcon, ArrowDownIcon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, StarIcon, ArrowUpTrayIcon  } from "react-native-heroicons/outline";
 import List from '../components/List';
+import { UserContext } from '../context/UserContext';
 
 
 export default function Account({item}) {
+
+  const { name } = useContext(UserContext)
+
   return (
     <View style={tw`bg-[#E5E5E5] flex-1`}>
       <View style={tw`flex-row items-center mx-4 rounded-xl justify-between px-6 mt-12 bg-white py-3`}>
@@ -13,7 +17,7 @@ export default function Account({item}) {
         <Image source={require("../assets/imagess/human.png")} style={tw``} />
         </TouchableOpacity>
         <View>
-          <Text style={tw`text-lg font-semibold`}>Sadek Hossen</Text>
+          <Text style={tw`text-lg font-semibold`}>Sadek Hossen {name}</Text>
           <Text>sadekhossen@gmail.com</Text>
         </View>
         <TouchableOpacity style={tw`relative bg-[#F9F9F9] p-1 rounded-md `}>

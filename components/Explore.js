@@ -42,7 +42,7 @@ export default function Explore() {
                           <MapPinIcon size="17" color="green" />
                           <Text style={tw`text-[#374151]`}>{exp.address}</Text>
                         </View>
-                        <TouchableOpacity onPress={()=>navigation.navigate("Onboarding")} style={tw`bg-green-600 rounded-xl px-6 py-2 `}>
+                        <TouchableOpacity style={tw`bg-green-600 rounded-xl px-6 py-2 `}>
                           <Text style={tw`text-white font-semibold`}>Book</Text>
                         </TouchableOpacity>
                     </View>

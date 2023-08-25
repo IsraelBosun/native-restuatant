@@ -1,5 +1,5 @@
 import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
-import React, { useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import tw from "twrnc";
 import {Bars2Icon } from "react-native-heroicons/solid";
 import { theme } from '../theme';
@@ -7,15 +7,19 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/Firebase';
+import { UserContext } from '../context/UserContext';
 
 
 
+// export const UserContext = createContext(null)
 
 
 export default function Create() {
 
     const navigation = useNavigation()
+    const { setName: setUserName } = useContext(UserContext)
 
+    // const [person, setPerson] = useContext(UserContext)
     const [active, setActive] = useState("CreateAccount");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -25,8 +29,10 @@ export default function Create() {
         if(email && password ) {
             try {
                 await createUserWithEmailAndPassword( auth, email, password);
+                setUserName(setName)
                 const jsonValue = JSON.stringify(auth);
                 alert(`${name} is signed up`)
+                console.log(auth.email)
                 navigation.navigate("Tab")
             } catch (err) {
                 console.log("got error", err.message)
@@ -38,7 +44,7 @@ export default function Create() {
 
 
   return (
-    <View style={tw`flex-1 bg-gray-300 items-center justify-center  `}>
+    <UserContext.Provider value={{setName: setUserName}} style={tw`flex-1 bg-gray-300 items-center justify-center  `}>
         <View style={tw`flex-1  mt-15`}>
       <Image source={require('../assets/imagess/orderdone.png')} style={tw` `}/>
         </View>
@@ -80,10 +86,11 @@ export default function Create() {
                 <Text style={tw`text-[#374151] font-semibold`}>Sign up with Google</Text>
             </TouchableOpacity>
         </View>
+            <Text style={tw`text-[#32B768] flex items-center justify-center text-center mt-3 font-semibold text-xs px-19 `}>Click the second button to bypass normal Sign-in process</Text>
         </View>
         </View>
       </View>
-    </View>
+    </UserContext.Provider>
   )
 }
 

@@ -80,8 +80,9 @@ export default function Home() {
         <Image source={require("../assets/imagess/pizza.png")} />
         </LinearGradient>
       </ScrollView>
-      <ScrollView 
-            style={[tw` pt-[10px] pb-[400px] px-2`, { flex: 1, }]}
+      <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={[tw` pt-[10px] pb-[400px] px-2`, { flex: 1, }]}
       >
       <Arrivable />
       <Explore />
